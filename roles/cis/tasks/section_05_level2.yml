@@ -1,0 +1,89 @@
+---
+#
+# Copyright 2015 David Rancourt
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+#
+
+
+   - name: 5.1.5 Check Library folder for world writable files (Preparation)
+     command: sudo find /Library -type d -perm 2 -ls | grep -v Caches
+     register: library_world_writable
+     change_when: false
+     tags:
+       - scored
+       - section5.1
+       - section5.1.5
+
+   - name: 5.1.5 Check Library folder for world writable files (Scored)
+     command: sudo chmod -R o-w {{ item }}
+     with_items: library_world_writable
+     tags:
+       - scored
+       - section5.1
+       - section5.1.5
+
+   - name: 5.3.1 Automatically Lock the Keychain for inactivity (Scored)
+     debug: "*** Manual intervention required"
+     tags:
+       - scored
+       - section5.3
+       - section5.3.1
+
+   - name: 5.4.1 Ensure login keychain is locked when computer sleeps (Scored)
+     debug: "*** Manual intervention required"
+     tags:
+       - scored
+       - section5.4
+       - section5.4.1
+
+   - name: 5.5.1 Enable OCSP and CRL certificate checking (Scored)
+     osx_defaults: domain=com.apple.security key=CRLStyle state=present type=string value=RequireIfPresent
+     osx_defaults: domain=com.apple.security key=OCSPStyle state=present type=string value=RequireIfPresent
+     tags:
+       - scored
+       - section5.5
+       - section5.5.1
+
+   - name: 5.17.1 Create login window banner (Scored)
+     copy: >
+       src=Library/Security/PolicyBanner.txt
+       dest=/Library/Security/PolicyBanner.txt
+       owner=root
+       group=wheel
+       mode=0751
+     tags:
+       - scored
+       - section5.17
+       - section5.17.1
+
+   - name: 5.19.1 Disable fast user switching (Not Scored)
+     debug: "*** Manual intervention required"
+     tags:
+       - notscored
+       - section5.19
+       - section5.19.1
+
+   - name: 5.20.1 Secure individual keychain items (Not Scored)
+     debug: "*** Manual intervention required"
+     tags:
+       - notscored
+       - section5.20
+       - section5.20.1
+
+   - name: 5.21.1 Create specialized keychains for different purposes (Not Scored)
+     debug: "*** Manual intervention required"
+     tags:
+       - notscored
+       - section5.21
+       - section5.21.1

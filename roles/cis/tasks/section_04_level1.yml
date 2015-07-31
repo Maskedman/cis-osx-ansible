@@ -1,0 +1,53 @@
+---
+#
+# Copyright 2015 David Rancourt
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+#
+
+
+   - name: 4.1.1 Enable "Show Wi-Fi Status in menu bar" (Scored)
+     debug: "*** Manual intervention required"
+     tags:
+       - scored
+       - section4.1
+       - section4.1.1
+
+   - name: 4.1.1 Enable "Show Wi-Fi Status in menu bar" (Scored)
+     debug: "*** Manual intervention required"
+     tags:
+       - scored
+       - section4.1
+       - section4.1.1
+
+   - name: 4.3.1 Ensure http server is not running (Scored)
+     command: sudo apachectl stop
+     osx_defaults: domain=org.apache.httpd key=Disabled status=present type=bool type=true
+     tags:
+       - scored
+       - section4.3
+       - section4.3.1
+
+   - name: 4.4.1 Ensure FTP server not running (Scored)
+     command: sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist
+     tags:
+       - scored
+       - section4.4
+       - section4.4.1
+
+   - name: 4.5.1 Ensure NFS server is not running (Scored)
+     debug: "*** Manual intervention suggested for GSFC environment"
+     tags:
+       - scored
+       - section4.5
+       - section4.5.1

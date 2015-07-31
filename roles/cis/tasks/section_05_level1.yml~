@@ -1,0 +1,142 @@
+---
+#
+# Copyright 2015 David Rancourt
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+#
+
+
+   - name: 5.1.1 Secure Home Folders (Scored)
+     debug: msg="*** Manual intervention required"
+     tags:
+       - scored
+       - section5.1
+       - section5.1.1
+
+   - name: 5.1.2 Repair permissions regularly (Not Scored)
+     command: diskutil repairPermissions /
+     tags:
+       - scored
+       - section5.1
+       - section5.1.2
+
+   - name: 5.1.3 Check Systemwide Applications for approp. permissions (Preparation)
+     shell: sudo find /Applications -iname "*\.app" -type d -perm -2 -ls
+     register: app_perms_check
+     change_when: false
+     tags:
+       - scored
+       - section5.1
+       - section5.1.3
+
+   - name: 5.1.3 Check systemwide Applications for approp. permissions (Scored)
+     command: sudo chmod -R o-w /Applications/{{ item }}
+     with_items: apps_perms_check
+     tags:
+       - scored
+       - section5.1
+       - section5.1.3
+
+   - name: 5.1.4 Check System folder for world writable files (Preparation)
+     command: sudo find /System -type d -perm 2 -ls | grep -v "Public/Drop Box"
+     register: sys_world_writable
+     change_when: false
+     tags:
+       - scored
+       - section5.1
+       - section5.1.4
+
+   - name: 5.1.4 Check system folder for world writable files (Scored)
+     command: sudo chmod -R o-w {{ item }}
+     with_items: sys_world_writable
+     tags:
+       - scored
+       - section5.1
+       - section5.1.4
+
+   - name: 5.2.1 Reduce sudo timeout period (Scored)
+     lineinfile: >
+       backup=yes
+       state=present
+       dest=/etc/sudoers
+       backrefs=yes
+       regexp="^Defaults timestamp_timeout\s+"
+       line="Defaults timestamp_timeout=0"
+     tags:
+       - scored
+       - section5.2
+       - section5.2.1
+
+   - name: 5.6.1 Disable root account (Scored)
+     debug: "*** Manual intervention required"
+     tags:
+       - scored
+       - section5.6
+       - section5.6.1
+
+   - name: 5.7.1 Disable automatic login (Scored)
+     osx_defaults: domain=com.apple.loginwindow key=autoLoginUser state=absent
+     tags:
+       - scored
+       - section5.7
+       - section5.7.1
+
+   - name: 5.8.1 require password to wake computer from sleep or screensaver (Scored)
+     osx_defaults: domain=com.apple.screensaver key=askForPassword state=present type=int value=1
+     tags:
+       - scored
+       - section5.8
+       - section5.8.1
+
+   - name: 5.9.1 require administrator password to access system-wide preferences (Scored)
+     debug: msg="*** Manual intervention required"
+     tags:
+       - scored
+       - section5.9
+       - section5.9.1
+
+   - name: 5.10.1 Disable ability to login to another user's locked session (Scored)
+     debug: "*** Manual intervention required"
+     tags:
+       - scored
+       - section5.10
+       - section5.10.1
+
+   - name: 5.11-5.12 Complex passwords (Scored)
+     command: sudo pwpolicy -setglobalpolicy "maxFailedLoginAttempts=5 minChars=15 requiresNumeric=1 requiresAlpha=1 requiresSymbol=1"
+     tags:
+       - scored
+       - section5.11
+       - section5.11.1
+       - section5.12
+       - section5.12.1
+       - section5.13
+       - section5.13.1
+       - section5.14
+       - section5.14.1
+       - section5.15
+       - section5.15.1
+
+   - name: 5.16.1 Custom Message for Login Screen (Scored)
+     osx_defaults: domain=com.apple.loginwindow.plist key=LoginWindowText state=present type=string value="*** This US Government computer is for authorized users only. By accessing this system you are consenting to complete monitoring with no expectation of privacy.  Unauthorized access or use may subject you to disciplinary action and criminal prosecution. ***
+     tags:
+       - scored
+       - section5.16
+       - section5.16.1
+
+   - name: 5.18.1 Do not enter a password-related hint (Not Scored)
+     debug: "*** Manual intervention required"
+     tags:
+       - notscored
+       - section5.18
+       - section5.18.1

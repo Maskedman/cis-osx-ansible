@@ -1,0 +1,19 @@
+---
+
+#
+# Copyright 2015 David Rancourt
+#
+# License Info here...
+#
+#
+#
+
+ - include section_07_level1.yml
+   tags:
+    - section7
+    - level1
+
+ - include section_07_level2.yml
+   tags:
+    - section7
+    - level2

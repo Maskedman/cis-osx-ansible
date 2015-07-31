@@ -1,0 +1,81 @@
+---
+#
+# Copyright 2015 David Rancourt
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+#
+
+   - name: 2.2.1 Enable "Set time and date automatically" (Not Scored)
+     command: sudo systemsetup -setnetworktimeserver timehost.gsfc.nasa.gov
+     command: sudo systemsteup -setusingnetworktime on
+     tags:
+       - notscored
+       - section2.2
+       - section2.2.1
+
+   - name: Secure screensaver corners (Scored)
+     debug: "*** manual intervention required"
+     tags:
+       - scored
+       - section2.3  
+       - section2.3.2
+
+   - name: 2.5.1 Disable "Wake for Network Access" (Scored)
+     command: sudo pmset -a womp 0
+     tags:
+       - scored
+       - section2.5
+       - section2.5.1
+
+   - name: 2.5.2 Sleeping the computer when connected to power (Scored)
+     command: sudo pmset -c sleep 0
+     tags:
+       - scored
+       - section2.5
+       - section2.5.2
+
+   - name: 2.7.1 iCloud configuration (Not Scored)
+     debug: "*** Manual intervention suggested"
+     tags:
+       - scored
+       - section2.7
+       - section2.7.1
+
+   - name: 2.7.2 iCloud Keychain (Not Scored)
+     debug: "*** Manual intervention suggested"
+     tags:
+       - scored
+       - section2.7
+       - section2.7.2
+
+   - name: 2.7.3 iCloud Drive (Scored)
+     osx_defaults: domain=NSGlobalDomain key=NSDocumentSaveNewDocumentsToCloud state=present type=bool value=false
+     tags:
+       - scored
+       - section2.7
+       - section2.7.3
+
+   - name: 2.10.1 Java 6 is not the default Java runtime (Scored)
+     debug: "*** Manual intervention suggested"
+     tags:
+       - scored
+       - section2.10
+       - section2.10.1
+
+   - name: 2.11.1 Configure Secure Empty Trash (Scored)
+     debug: "*** Manual intervention required"
+     tags:
+       - scored
+       - section2.11
+       - section2.11.1
+
