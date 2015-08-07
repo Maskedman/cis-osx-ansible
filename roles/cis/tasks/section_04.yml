@@ -8,12 +8,12 @@
 #
 #
 
- - include section_04_level1.yml
+ - include: section_04_level1.yml
    tags:
     - section4
     - level1
 
- - include section_04_level2.yml
+ - include: section_04_level2.yml
    tags:
     - section4
     - level2
