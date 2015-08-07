@@ -30,8 +30,14 @@
        - section4.1
        - section4.1.1
 
-   - name: 4.3.1 Ensure http server is not running (Scored)
+   - name: 4.3.1 Ensure http server is not running (Scored) - Prep stage
      command: sudo apachectl stop
+     tags:
+       - scored
+       - section4.3
+       - section4.3.1
+
+   - name: 4.3.1 Ensure http server is not running (Scored)
      osx_defaults: domain=org.apache.httpd key=Disabled status=present type=bool type=true
      tags:
        - scored
