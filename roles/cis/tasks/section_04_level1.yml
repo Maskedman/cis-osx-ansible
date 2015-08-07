@@ -52,7 +52,7 @@
        - section4.4.1
 
    - name: 4.5.1 Ensure NFS server is not running (Scored)
-     debug: msg="*** Manual intervention suggested for GSFC environment"
+     debug: msg="*** Manual intervention suggested for a server environment"
      tags:
        - scored
        - section4.5
