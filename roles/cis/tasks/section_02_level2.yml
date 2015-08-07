@@ -24,7 +24,7 @@
        - section2.2.1
 
    - name: Secure screensaver corners (Scored)
-     debug: "*** manual intervention required"
+     debug: msg="*** manual intervention required"
      tags:
        - scored
        - section2.3  
@@ -45,14 +45,14 @@
        - section2.5.2
 
    - name: 2.7.1 iCloud configuration (Not Scored)
-     debug: "*** Manual intervention suggested"
+     debug: msg="*** Manual intervention suggested"
      tags:
        - scored
        - section2.7
        - section2.7.1
 
    - name: 2.7.2 iCloud Keychain (Not Scored)
-     debug: "*** Manual intervention suggested"
+     debug: msg="*** Manual intervention suggested"
      tags:
        - scored
        - section2.7
@@ -66,14 +66,14 @@
        - section2.7.3
 
    - name: 2.10.1 Java 6 is not the default Java runtime (Scored)
-     debug: "*** Manual intervention suggested"
+     debug: msg="*** Manual intervention suggested"
      tags:
        - scored
        - section2.10
        - section2.10.1
 
    - name: 2.11.1 Configure Secure Empty Trash (Scored)
-     debug: "*** Manual intervention required"
+     debug: msg="*** Manual intervention required"
      tags:
        - scored
        - section2.11

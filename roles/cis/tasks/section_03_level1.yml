@@ -29,7 +29,7 @@
        - section3.1.1
 
    - name: 3.1.2 Retain appfirewall.log for 90 or more days (Scored)
-     debug: "*** Step performed as part of 3.1.1"
+     debug: msg="*** Step performed as part of 3.1.1"
      tags:
        - scored
        - section3.1

@@ -60,7 +60,7 @@
        - section6.3.1
 
    - name: 6.4.1 Use parental controls for systems that are not centrally managed (Not Scored)
-     debug: msg"*** Too restrictive"
+     debug: msg="*** Too restrictive"
      tags:
        - scored
        - section6.4 

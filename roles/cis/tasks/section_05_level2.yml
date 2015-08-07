@@ -34,14 +34,14 @@
        - section5.1.5
 
    - name: 5.3.1 Automatically Lock the Keychain for inactivity (Scored)
-     debug: "*** Manual intervention required"
+     debug: msg="*** Manual intervention required"
      tags:
        - scored
        - section5.3
        - section5.3.1
 
    - name: 5.4.1 Ensure login keychain is locked when computer sleeps (Scored)
-     debug: "*** Manual intervention required"
+     debug: msg="*** Manual intervention required"
      tags:
        - scored
        - section5.4
@@ -68,21 +68,21 @@
        - section5.17.1
 
    - name: 5.19.1 Disable fast user switching (Not Scored)
-     debug: "*** Manual intervention required"
+     debug: msg="*** Manual intervention required"
      tags:
        - notscored
        - section5.19
        - section5.19.1
 
    - name: 5.20.1 Secure individual keychain items (Not Scored)
-     debug: "*** Manual intervention required"
+     debug: msg="*** Manual intervention required"
      tags:
        - notscored
        - section5.20
        - section5.20.1
 
    - name: 5.21.1 Create specialized keychains for different purposes (Not Scored)
-     debug: "*** Manual intervention required"
+     debug: msg="*** Manual intervention required"
      tags:
        - notscored
        - section5.21

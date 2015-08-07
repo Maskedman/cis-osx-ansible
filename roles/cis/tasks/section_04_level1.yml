@@ -17,14 +17,14 @@
 
 
    - name: 4.1.1 Enable "Show Wi-Fi Status in menu bar" (Scored)
-     debug: "*** Manual intervention required"
+     debug: msg="*** Manual intervention required"
      tags:
        - scored
        - section4.1
        - section4.1.1
 
    - name: 4.1.1 Enable "Show Wi-Fi Status in menu bar" (Scored)
-     debug: "*** Manual intervention required"
+     debug: msg="*** Manual intervention required"
      tags:
        - scored
        - section4.1
@@ -46,7 +46,7 @@
        - section4.4.1
 
    - name: 4.5.1 Ensure NFS server is not running (Scored)
-     debug: "*** Manual intervention suggested for GSFC environment"
+     debug: msg="*** Manual intervention suggested for GSFC environment"
      tags:
        - scored
        - section4.5

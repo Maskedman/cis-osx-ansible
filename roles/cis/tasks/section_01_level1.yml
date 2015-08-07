@@ -39,4 +39,14 @@
 
  - name: 1.4.1 Enable System data files and security update installs (Scored)
    osx_defaults: domain=com.apple.SoftwareUpdate key=ConfigDataInstall type=bool value=true
+   tags:
+    - scored
+    - section1.4
+    - section1.4.1
+
+ - name: 1.4.1 Enable System data files and security update installs (Scored)
    osx_defaults: domain=com.apple.SoftwareUpdate key=CriticalUpdateInstall type=bool value=true
+   tags:
+    - scored
+    - section1.4.
+    - section1.4.1

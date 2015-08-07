@@ -106,7 +106,7 @@
        - section5.9.1
 
    - name: 5.10.1 Disable ability to login to another user's locked session (Scored)
-     debug: "*** Manual intervention required"
+     debug: msg="*** Manual intervention required"
      tags:
        - scored
        - section5.10
@@ -135,7 +135,7 @@
        - section5.16.1
 
    - name: 5.18.1 Do not enter a password-related hint (Not Scored)
-     debug: "*** Manual intervention required"
+     debug: msg="*** Manual intervention required"
      tags:
        - notscored
        - section5.18

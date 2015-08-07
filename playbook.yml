@@ -1,6 +1,7 @@
 ---
  - hosts: all
    accelerate: true
-   user: root
+   user: davidr
+   sudo: yes
    roles:
      - cis

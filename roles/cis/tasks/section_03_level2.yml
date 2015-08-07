@@ -28,7 +28,7 @@
        - section3.3.1
 
    - name: 3.4.1 Enable remote logging for Desktops on trusted networks (Not Scored)
-     debug: "*** Manual intervention suggested"
+     debug: msg="*** Manual intervention suggested"
      tags:
        - scored
        - section3.4

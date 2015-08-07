@@ -18,14 +18,20 @@
 
    - name: 2.1.1 Disable Bluetooth, if no paired devices exist (Scored)
      osx_defaults: domain=com.apple.Bluetooth key=ControllerPowerState type=int value=0
-     command: sudo killall -HUP blued
      tags:
        - scored
        - section2.1
        - section2.1.1
+   
+   - name: kill blued (part of 2.1.1)
+     command: sudo killall -HUP blued
+     tags:
+       - scored
+         section2.1
+         section2.1.1
 
    - name: 2.1.2 Disable Bluetooth "Discoverable" mode when not pairing devices (Scored)
-     debug: "*** Bluetooth is only set to Discoverable when the Bluetooth System Preference is selected."
+     debug: msg="*** Bluetooth is only set to Discoverable when the Bluetooth System Preference is selected."
      tags:
        - scored
        - section2.1
@@ -60,7 +66,7 @@
        - section2.3.3
 
    - name: 2.3.4 Set a screen corner to start screensaver (Scored)
-     debug: "*** Only user can set this feature. See CIS handbook for instructions"
+     debug: msg="*** Only user can set this feature. See CIS handbook for instructions"
      tags:
        - scored
        - section2.3
@@ -74,63 +80,63 @@
        - section2.4.1
 
    - name: 2.4.2 Disable Internet Sharing (Scored)
-     debug: "*** Manual intervention suggested"
+     debug: msg="*** Manual intervention suggested"
      tags:
        - scored
        - section2.4
        - section2.4.2
 
    - name: 2.4.3 Disable screen sharing (Scored)
-     debug: "*** Manual intervention suggested"
+     debug: msg="*** Manual intervention suggested"
      tags:
        - scored
        - section2.4
        - section2.4.3
 
    - name: 2.4.4 Disable Printer Sharing (Scored)
-     debug: "*** Manual intervention suggested"
+     debug: msg="*** Manual intervention suggested"
      tags:
        - scored
        - section2.4
        - section2.4.4
 
    - name: 2.4.5 Disable remote login (Scored)
-     debug: "*** Manual intervention suggested"
+     debug: msg="*** Manual intervention suggested"
      tags:
        - scored
        - section2.4
        - section2.4.5
 
    - name: 2.4.6 Disable DVD or CD Sharing (Scored)
-     debug: "*** Manual intervention suggested"
+     debug: msg="*** Manual intervention suggested"
      tags:
        - scored
        - section2.4
        - section2.4.6
 
    - name: 2.4.7 Disable Bluetooth Sharing (Scored)
-     debug: "*** Manual intervention suggested"
+     debug: msg="*** Manual intervention suggested"
      tags:
        - scored
        - section2.4
        - section2.4.7
 
    - name: 2.4.8 Disable File Sharing (Scored)
-     debug: "*** Manual intervention suggested"
+     debug: msg="*** Manual intervention suggested"
      tags:
        - scored
        - section2.4
        - section2.4.8
 
    - name: 2.4.9 Disable Remote Management (Scored)
-     debug: "*** Manual intervention suggested"
+     debug: msg="*** Manual intervention suggested"
      tags:
        - scored
        - section2.4
        - section2.4.9
 
    - name: 2.6.1 Enable FileVault (Scored)
-     debug: "*** Manual intervention suggested"
+     debug: msg="*** Manual intervention suggested"
      tags:
        - scored
        - section2.6
@@ -151,28 +157,28 @@
        - section2.6.3
 
    - name: 2.6.4 Enable Fireall Stealth Mode (Scored)
-     debug: "*** Manual intervention suggested"
+     debug: msg="*** Manual intervention suggested"
      tags:
        - scored
        - section2.6
        - section2.6.4
 
    - name: 2.6.5 Review Application Firewall Rules (Scored)
-     debug: "*** Manual intervention suggested"
+     debug: msg="*** Manual intervention suggested"
      tags:
        - scored
        - section2.6
        - section2.6.5
 
    - name: 2.8.1 Pair the remote control infrared reciever if enabled (Scored)
-     debug: "*** Manual intervention required"
+     debug: msg="*** Manual intervention required"
      tags:
        - scored
        - section2.8
        - section2.8.1
 
    - name: 2.9.1 Enable Secure Keyboard Entry in terminal.app (Scored)
-     debug: "*** Manual intervention required"
+     debug: msg="*** Manual intervention required"
      tags:
        - scored
        - section2.9
