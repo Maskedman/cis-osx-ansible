@@ -39,10 +39,16 @@
 
    - name: 6.1.4 Disable allow guest to connect to shared folders (Scored)
      osx_defaults: domain=com.apple.smb.server key=AllowGuestAccess state=present type=bool value=false
-     osx_defaults: domain=com.apple.AppleFileServer key=guestAccess state=present type=bool value=false
      tags:
        - scored
        - section6.1 
+       - section6.1.4
+
+   - name: 6.1.4 Disable allow guest to connect to shared folders (Scored)
+     osx_defaults: domain=com.apple.AppleFileServer key=guestAccess state=present type=bool value=false
+     tags:
+       - scored
+       - section6.1
        - section6.1.4
 
    - name: 6.2.1 Turn on filename extensions (Scored)

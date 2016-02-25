@@ -38,7 +38,7 @@
        - section4.3.1
 
    - name: 4.3.1 Ensure http server is not running (Scored)
-     osx_defaults: domain=org.apache.httpd key=Disabled status=present type=bool type=true
+     osx_defaults: domain=org.apache.httpd key=Disabled type=bool value=true state=present
      tags:
        - scored
        - section4.3

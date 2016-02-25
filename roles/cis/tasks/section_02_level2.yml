@@ -15,13 +15,13 @@
 #   limitations under the License.
 #
 
-   - name: 2.2.1 Enable "Set time and date automatically" (Not Scored)
-     command: sudo systemsetup -setnetworktimeserver timehost.gsfc.nasa.gov
-     command: sudo systemsteup -setusingnetworktime on
-     tags:
-       - notscored
-       - section2.2
-       - section2.2.1
+#   - name: 2.2.1 Enable "Set time and date automatically" (Not Scored)
+#     command: sudo systemsetup -setnetworktimeserver timehost.gsfc.nasa.gov
+#     command: sudo systemsteup -setusingnetworktime on
+#     tags:
+#       - notscored
+#       - section2.2
+#       - section2.2.1
 
    - name: Secure screensaver corners (Scored)
      debug: msg="*** manual intervention required"

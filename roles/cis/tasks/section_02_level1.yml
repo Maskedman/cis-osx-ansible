@@ -22,13 +22,13 @@
        - scored
        - section2.1
        - section2.1.1
-   
+
    - name: kill blued (part of 2.1.1)
      command: sudo killall -HUP blued
      tags:
        - scored
-         section2.1
-         section2.1.1
+       - section2.1
+       - section2.1.1
 
    - name: 2.1.2 Disable Bluetooth "Discoverable" mode when not pairing devices (Scored)
      debug: msg="*** Bluetooth is only set to Discoverable when the Bluetooth System Preference is selected."
@@ -44,12 +44,13 @@
        - section2.1
        - section2.1.3
 
-   - name: 2.2.2 Ensure time set is within appropriate limits (Scored)
-     command: sudo ntpdate -av timehost.gsfc.nasa.gov
-     tags:
-       - scored
-       - section2.2
-       - section2.2.2
+#   - name: 2.2.2 Ensure time set is within appropriate limits (Scored)
+#     become: root
+#     command: ntpdate -av time.rio.nascom.nasa.gov
+#     tags:
+#       - scored
+#       - section2.2
+#       - section2.2.2
 
    - name: 2.3.1 Set an inactivity interval of 20 minutes or less for screensaver (Scored)
      osx_defaults: domain=com.apple.screensaver key=idleTime type=int value=1200
@@ -183,4 +184,3 @@
        - scored
        - section2.9
        - section2.9.1
-
