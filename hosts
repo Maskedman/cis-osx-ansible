@@ -1,2 +1,2 @@
 [all_hosts]
-localhost connection=local
+localhost:6021
